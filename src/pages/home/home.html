@@ -7,8 +7,36 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
+  <h1> for with trackby </h1>
+  <table>
+      <tr *ngFor="let employee of employees;trackBy:trackByEmpCode; let i=index; let odd=odd;let even=even; ">
+          <td>{{i}}  </td>
+          <td>{{employee.Divisions}}  </td>
+                    <td>{{employee.DivisionId}}  </td>
+                          <td>odd data: {{odd}}  </td>
+                            <td>even data: {{even}}  </td>
+      </tr>
+  </table>
+  <button (click)="getEmployees()">refreshdata</button>
+
+  <hr/>
+    <h1> ngif condition when button click show the data and again click dismiss the data </h1>
+  <p *ngIf="display">
+  display the data
   </p>
+    <button (click)="showhide()">showhide</button>
+    <hr/>
+    <h1>ngswitch</h1>
+    <div [ngSwitch]="name">
+      <div *ngSwitchWhen="'ravi'">
+        ravi
+      </div>
+      <div *ngSwitchWhen="'chandra'">
+        chandra
+      </div>
+      <div *ngSwitchDefault>
+      something went wrng
+      </div>
+
+    </div>
 </ion-content>
